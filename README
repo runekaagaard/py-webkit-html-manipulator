@@ -1,0 +1,39 @@
+== Welcome to Py Webkit Html Manipulator ==
+This script allows you to render a webpage on your server and manipulate and 
+extract the rendered html. The manipulation is done with
+javascript in the browser using the pyQt Webkit Api.
+
+The difference from a normal html scraper is that javscript and css also is 
+rendered.
+
+== Installation ==
+Install python and pyQt. On ubuntu you would run:
+
+  sudo apt-get install python python-qt4
+
+If you make it work on other platforms please let me know how.
+
+== Usage ==
+# Get help
+  ./whm.py --help
+
+# Run it
+  ./whm.py -u 'http://example.com'
+
+# Run it headless. Works only on linux. You need to install xvfb first.
+# On ubuntu run sudo apt-get install xvfb 
+  xvfb-run --server-args="-screen 0, 640x480x24" ./whm.py --url='http://example.com' --js-file=whm-example.js
+
+== The format of the js file ==
+If no --js-file argument is supplied the html for webpage will be outputted.
+If --js-file argument is present the output will be the content of
+the variable WebkitHtmlManipulator.result that must be available in the global
+scope.
+
+See whm-example.js for an example. It adds information about position,
+font-size, etc. to each element in the dom.
+
+== Contact ==
+Rune Kaagaard
+Copenhagen, Denmark
+rumi.kg@gmail.com
